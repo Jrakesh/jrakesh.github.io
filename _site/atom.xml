@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Rakesh Jha</title>
+ <link href="http://jrakesh.github.io/atom.xml" rel="self"/>
+ <link href="http://jrakesh.github.io/"/>
+ <updated>2014-04-02T02:50:10+05:30</updated>
+ <id>http://jrakesh.github.io/</id>
+ <author>
+   <name>Rakesh Jha</name>
+ </author>
+ 
+ 
+ <entry>
+   <title>Getting Started with Jekyll</title>
+   <link href="http://jrakesh.github.com/blog/getting-started-with-jekyll"/>
+   <updated>2014-03-15T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/getting-started-with-jekyll</id>
+   <content type="html">&lt;p&gt;Let&amp;#39;s say you need an easy way to create a blog within minutes. Well, &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; does exactly that! It&amp;#39;s a highly popular tool in the modern blogging field!&lt;/p&gt;
+
+&lt;h1 id=&quot;what&quot;&gt;What is it?&lt;/h1&gt;
+
+&lt;p&gt;Jekyll is a static site generator built using Ruby. It allows you to write basic HTML and CSS to create a fully functional website that&amp;#39;s ready for your server! You can also use &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; for your posts and &lt;a href=&quot;https://github.com/Shopify/liquid/#readme&quot;&gt;Liquid&lt;/a&gt; for templating.&lt;/p&gt;
+
+&lt;h1 id=&quot;how&quot;&gt;How do I get started?&lt;/h1&gt;
+
+&lt;p&gt;First, open up Command Prompt or Terminal depending on your operating system. Next, install Jekyll onto your system:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;gem install jekyll&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, create a new site using:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;jekyll new my-amazing-site&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, go into the newly created site directory and set up a server to watch for changes.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;cd my-amazing-site&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;jekyll serve --watch&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that the server is set up, we can point our browser to &lt;code&gt;localhost:4000&lt;/code&gt; in order to view our newly generated site! It should look something like the following:&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/img/posts/jekyll-new-site.png&quot; alt=&quot;A new Jekyll blog&quot;&gt;&lt;figcaption&gt;A new blog created with Jekyll&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;directory&quot;&gt;Directory Structure&lt;/h1&gt;
+
+&lt;p&gt;Jekyll blogs often have a directory structure similar to the one below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  _config.yml&lt;/li&gt;
+&lt;li&gt;  _layouts
+
+&lt;ul&gt;
+&lt;li&gt;  default.html&lt;/li&gt;
+&lt;li&gt;  post.html&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;  _posts
+
+&lt;ul&gt;
+&lt;li&gt;  2013-06-03-a-great-post.md&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;  _site&lt;/li&gt;
+&lt;li&gt;  css
+
+&lt;ul&gt;
+&lt;li&gt;  styles.css&lt;/li&gt;
+&lt;li&gt;  syntax.css&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;  index.html&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jekyll populates the &lt;code&gt;_site&lt;/code&gt; folder with the compiled blog. The configuration for your blog is stored in &lt;code&gt;_config.yml&lt;/code&gt;. A sample configuration is shown below:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;My Awesome Website!&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;This is an amazing site I made a while ago!&lt;/span&gt;
+
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;paginate&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;6&lt;/span&gt;
+
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;rdiscount&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;pretty&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;pygments&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The posts for the blog are put into the &lt;code&gt;_posts&lt;/code&gt; directory. These files can be written using HTML or Markdown. Jekyll blog posts must be named with a specific date prefix, as shown above. They must be named in the following format: &lt;code&gt;year-month-day-title-with-dashes-for-separation.md&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;adjusting&quot;&gt;Adjusting your blog&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Layouts allow you to define a template that a set of HTML files will follow.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What if you wanted to define a standard template for all of your posts? How about making a separate one for the non-post pages on your blog, such as the About or Resume pages? Well, Jekyll allows you to accomplish both of these tasks using something called layouts. Layouts allow you to define a template that a set of HTML files will follow. Two layouts are already provided for you in the &lt;code&gt;_layouts&lt;/code&gt; folder if you executed the &lt;code&gt;jekyll new&lt;/code&gt; command previously. The &lt;code&gt;default.html&lt;/code&gt; template is for non-post pages and the other one, &lt;code&gt;post.html&lt;/code&gt;, is for posts. Changing these files will allow you to change all of your non-post or post pages at once, which is extremely useful for implementing something that will be consistent throughout several pages! For example, you can make a header with navigation and a logo for each page.&lt;/p&gt;
+
+&lt;h1 id=&quot;styling&quot;&gt;Styling&lt;/h1&gt;
+
+&lt;p&gt;In order to change the styling, use the &lt;code&gt;css&lt;/code&gt; directory. The &lt;code&gt;syntax.css&lt;/code&gt; file contains code highlighting styles, while the &lt;code&gt;styles.css&lt;/code&gt; is for general site styles.&lt;/p&gt;
+
+&lt;h1 id=&quot;posting&quot;&gt;Post, post, post!&lt;/h1&gt;
+
+&lt;p&gt;Now that the Jekyll blog is set up, start posting! To write a new post, make a new file in &lt;code&gt;_posts&lt;/code&gt;, but don&amp;#39;t forget to include the date prefix that was previously mentioned! Once the file is created, you will have to define the title and layout of the post using YAML inside the file. This is called &lt;em&gt;front matter&lt;/em&gt;. Say I have a post named &lt;em&gt;All About Rainbows&lt;/em&gt;. Then I&amp;#39;ll have to fill the file with the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;All About Rainbows&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This tells Jekyll that I want to use the &lt;code&gt;post.html&lt;/code&gt; template inside of the &lt;code&gt;_layouts&lt;/code&gt; folder that we previously talked about. Then, I can start writing in Markdown (or HTML if I made a .html file):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;---
+title: All About Rainbows
+layout: post
+---
+
+# Introduction
+
+Yes, rainbows are amazing, but do you know everything about them?
+
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;moreInfo&quot;&gt;More Information&lt;/h1&gt;
+
+&lt;p&gt;This was just a preview of Jekyll as there is much more to learn! You can find out more about Jekyll and its various other features by visiting their amazing &lt;a href=&quot;http://jekyllrb.com/docs/home/&quot;&gt;documentation site&lt;/a&gt;. Thanks for reading!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Unix Terminal Commands</title>
+   <link href="http://jrakesh.github.com/blog/unix-terminal-commands"/>
+   <updated>2014-02-16T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/unix-terminal-commands</id>
+   <content type="html">&lt;p&gt;The terminal is an extremely useful tool for any advanced computer user. It can allow you to perform tasks at a rapid rate, often faster than using a &lt;a href=&quot;http://en.wikipedia.org/wiki/Graphical_user_interface&quot;&gt;GUI&lt;/a&gt;. Today, I&amp;#39;ll show you guys a couple of commands that are available in any Unix terminal. However, this is just a starter list of commands. Discover more commands &lt;a href=&quot;http://www.math.harvard.edu/computing/unix/unixcommands.html&quot;&gt;here&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h1 id=&quot;commands&quot;&gt;Commands&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;man&lt;/code&gt;&lt;br&gt;
+This is an essential command to learn as it will allow you to look up the manual for any command. In essence, it will bring up a tutorial for a certain command. For example, &lt;code&gt;man man&lt;/code&gt; will bring up information about the &lt;code&gt;man&lt;/code&gt; command.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;&lt;br&gt;
+This command will list files that are not hidden in the current directory. If you include the optional &lt;code&gt;-a&lt;/code&gt; flag, as in &lt;code&gt;ls -a&lt;/code&gt;, the terminal will allow you to see &lt;em&gt;all&lt;/em&gt; of the files in the current directory, including the hidden ones. This is useful if you want to see hidden files occasionally and do not want the option to be the system default.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;cd&lt;/code&gt;&lt;br&gt;
+The command &lt;code&gt;cd&lt;/code&gt; is another vital command to learn. It will allow you to change the directory, as the name implies. For example, if you are in the directory &lt;code&gt;/test&lt;/code&gt; and you wanted to change to the directory &lt;code&gt;/test/anothertest&lt;/code&gt;, then you would use the command &lt;code&gt;cd anothertest&lt;/code&gt;. This would not work if you are not in the &lt;code&gt;/test&lt;/code&gt; directory because the &lt;code&gt;cd&lt;/code&gt; command would not know where to look. In order to look outside of the current directory, you would use &lt;code&gt;..&lt;/code&gt;. For example, if the directory you are looking for is &lt;code&gt;/brains&lt;/code&gt; which is a parent directory of &lt;code&gt;/test&lt;/code&gt;, then you would use &lt;code&gt;cd ..&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;touch&lt;/code&gt;&lt;br&gt;
+This command is used to create new files in the current directory (if you want to retrieve the current directory, use &lt;code&gt;pwd&lt;/code&gt;). If I wanted to create two new HTML files called one.html and two.html in the current directory, I would type: &lt;code&gt;touch one.html two.html&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;mkdir&lt;/code&gt;&lt;br&gt;
+The name of this command represents the words make directory. It is used exactly for that purpose, making a new directory (or folder) in the current directory. Typing &lt;code&gt;mkdir test&lt;/code&gt; would create a directory named test in the current directory. Note that if you want the name to contain spaces, you would type the name in double quotes (like this: &lt;code&gt;mkdir &amp;quot;a name with spaces in it&amp;quot;&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;open&lt;/code&gt;&lt;br&gt;
+This will open files or directories that you pass to it. For example, &lt;code&gt;open .&lt;/code&gt; will open the current directory, where &lt;code&gt;.&lt;/code&gt; represents the current directory (note that &lt;code&gt;.&lt;/code&gt; can be used in other commands as well).&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;workflow&quot;&gt;Workflow&lt;/h1&gt;
+
+&lt;p&gt;Now let&amp;#39;s use the commands we just learned in a sample workflow that you, a developer or another person, might use during a typical day.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;First, create a folder for a new project with &lt;code&gt;mkdir &amp;quot;My Awesome Project&amp;quot;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Then, change the directory to that folder with &lt;code&gt;cd &amp;quot;My Awesome Project&amp;quot;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Next, create an &lt;code&gt;index.html&lt;/code&gt; file and a directory for CSS and JavaScript. The following will do the trick: &lt;code&gt;touch index.html; mkdir css js;&lt;/code&gt;. Note that semicolons (;) are used to combine one or more commands onto a single line.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, open the current directory using &lt;code&gt;open .&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;closing&quot;&gt;Closing&lt;/h1&gt;
+
+&lt;p&gt;There you have it! A list of some simple commands to get you started with Unix terminal! Feel free to add comments below to point out more commands or help others!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Popup Image Gallery using jQuery</title>
+   <link href="http://jrakesh.github.com/blog/popup-image-gallery"/>
+   <updated>2014-02-09T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/popup-image-gallery</id>
+   <content type="html">&lt;p&gt;A simple search for &lt;code&gt;jquery image galleries&lt;/code&gt; on Google will bring you to several projects created by different people! However, creating your own gallery can sometimes be more efficient. For example, making your own gallery can save your website extra loading time!&lt;/p&gt;
+
+&lt;h1 id=&quot;procedure&quot;&gt;Procedure&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;#39;s get started! We&amp;#39;ll first need some basic markup in HTML for our images and the box that will hold the current and selected image.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;images&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 1,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 2,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 3,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 4,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 5,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 6,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 7,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 8,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 9,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placebox.es/300/300/f1f1f1/222/Image 10,25&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;focus&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;close&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;#10005;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the code above, &lt;code&gt;div.images&lt;/code&gt; holds the images and &lt;code&gt;div.focus&lt;/code&gt; holds the enlarged and focused image. The &lt;code&gt;span.close&lt;/code&gt; contains a Unicode entity for the multiplication symbol, which we will use for a close button.&lt;/p&gt;
+
+&lt;p&gt;Next, we&amp;#39;ll style the elements we just created using the following CSS.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sizing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#222&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.images&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;640px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-128px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-320px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.images&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;pointer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;128px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.focus&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;300px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;300px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-150px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-150px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;z-index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.focus&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;pointer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.overlay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.darken&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;div.images&lt;/code&gt; is absolutely positioned in the middle of the page. The &lt;code&gt;div.focus&lt;/code&gt; is also absolutely positioned in the middle above the &lt;code&gt;div.images&lt;/code&gt; due to the &lt;code&gt;z-index: 10;&lt;/code&gt; line. Next, there are two helper classes, &lt;code&gt;.overlay&lt;/code&gt; and &lt;code&gt;.darken&lt;/code&gt;, which will help us in our jQuery code.&lt;/p&gt;
+
+&lt;p&gt;Next, we add  functionality of the image gallery using jQuery.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.images&amp;gt;img&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.focus&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.focus .close&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.images&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$this&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;src&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;img src=\&amp;quot;&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;\&amp;quot; /&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fadeIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;darken&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;div class=&amp;quot;overlay&amp;quot;&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;display&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;none&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;darken&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.overlay&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;First, we are caching the elements of our gallery inside &lt;code&gt;image&lt;/code&gt;, &lt;code&gt;box&lt;/code&gt;, &lt;code&gt;close&lt;/code&gt;, and &lt;code&gt;images&lt;/code&gt;. Next, we set up a click handler for all the images inside &lt;code&gt;div.images&lt;/code&gt;. On click, jQuery will find any existing images inside &lt;code&gt;div.focus&lt;/code&gt;, remove them, and then insert the image that was clicked into the &lt;code&gt;div&lt;/code&gt;. Next, it will fade in &lt;code&gt;div.focus&lt;/code&gt;, darken the images behind the selected one, and make the unselected ones disabled. Finally, the close click handler hides &lt;code&gt;div.focus&lt;/code&gt; and removes the &lt;code&gt;.overlay&lt;/code&gt; and &lt;code&gt;.darken&lt;/code&gt; elements.&lt;/p&gt;
+
+&lt;h1 id=&quot;closing&quot;&gt;Closing&lt;/h1&gt;
+
+&lt;p&gt;And there we have it! A simple image gallery! Check it out below and don&amp;#39;t hesitate to tinker with it! Next time you decide to include an image gallery inside your website, be sure to think about whether you need a massive jQuery plugin or not.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/labs/popup-image-gallery&quot; class=&quot;button&quot;&gt;Demo&lt;/a&gt;
+&lt;a href=&quot;/labs/popup-image-gallery/popup-image-gallery.zip&quot; class=&quot;button&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using Yeoman</title>
+   <link href="http://jrakesh.github.com/blog/using-yeoman"/>
+   <updated>2014-02-02T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/using-yeoman</id>
+   <content type="html">&lt;p&gt;Chances are, you&amp;#39;ve heard of &lt;a href=&quot;http://yeoman.io/&quot;&gt;Yeoman&lt;/a&gt; before, but don&amp;#39;t exactly know what it is. Well, hopefully I can help you get started with using this awesome web development workflow tool in less than 10 minutes.&lt;/p&gt;
+
+&lt;h1 id=&quot;what&quot;&gt;So what is it?&lt;/h1&gt;
+
+&lt;p&gt;Yeoman is a command line tool built for the purpose of helping you (a web developer) in your everyday development workflow. That means it can generate starter templates for you whether or not you&amp;#39;re using a web application framework such as AngularJS, Backbone.js, or something else. Not only do you get a kickstart on your project, but you also receive code that adheres to the current best practices as the &lt;a href=&quot;http://yeoman.io/community-generators.html&quot;&gt;public contributes&lt;/a&gt; to the code for Yeoman generators.&lt;/p&gt;
+
+&lt;h1 id=&quot;installYeoman&quot;&gt;Installing Yeoman&lt;/h1&gt;
+
+&lt;p&gt;If you haven&amp;#39;t already, install node.js by visiting its &lt;a href=&quot;http://nodejs.org/&quot;&gt;website&lt;/a&gt; and clicking the install button. Next, open up Terminal or the Command Prompt (depending on what OS you&amp;#39;re using) and enter the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;npm install -g yo grunt-cli bower&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This should install Yeoman and it&amp;#39;s dependencies (yo, &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt; and &lt;a href=&quot;http://bower.io/&quot;&gt;Bower&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h1 id=&quot;installGenerators&quot;&gt;Installing Generators&lt;/h1&gt;
+
+&lt;p&gt;Next, you need to install generators in order to use the starter templates described above. Let&amp;#39;s say you wanted Yeoman to create a basic template for a web application. First, you need to install the generator for this functionality. This is as simple as:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;npm install -g generator-webapp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Installing other generators follows this same format. For example, if you needed an AngularJS generator, you would use:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;npm install -g generator-angular&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;usingGenerators&quot;&gt;Using Generators&lt;/h1&gt;
+
+&lt;p&gt;After installation, using generators is as simple as going to the directory where you want the template to be installed and typing the following in the Terminal or Command Prompt:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;yo webapp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This assumes that you are using the webapp generator. Using the AngularJS generator instead would look like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;yo angular&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you run the generator, you should get a folder full of all the dependencies and source files for your web development project.&lt;/p&gt;
+
+&lt;h1 id=&quot;local&quot;&gt;Local Development&lt;/h1&gt;
+
+&lt;p&gt;To start developing locally, simply run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;grunt server&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This will fire up a localhost server for you to develop on. Another neat feature is that the server updates automatically as you edit the project&amp;#39;s source files, meaning you can see your changes instantaneously.&lt;/p&gt;
+
+&lt;h1 id=&quot;build&quot;&gt;Building Your Application&lt;/h1&gt;
+
+&lt;p&gt;Once you&amp;#39;re done developing your amazing application, you can build it into a production folder using:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;grunt build&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This will concatenate all of your JavaScript scripts and CSS files, link them up in the &lt;code&gt;index.html&lt;/code&gt; file, and create a &lt;code&gt;dist&lt;/code&gt; folder in the main directory for you. Then, you can simply transport your completed application elsewhere by using the &lt;code&gt;dist&lt;/code&gt; folder (short for distribution).&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;That&amp;#39;s all there is to mastering the Yeoman tool! Be sure to check out more community and built-in generators &lt;a href=&quot;http://yeoman.io/community-generators.html&quot;&gt;here&lt;/a&gt;. Also, check out the official &lt;a href=&quot;http://yeoman.io/gettingstarted.html&quot;&gt;getting started page&lt;/a&gt; on the Yeoman website. Thanks for reading!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>AngularJS For Beginners</title>
+   <link href="http://jrakesh.github.com/blog/learning-angularjs"/>
+   <updated>2014-01-26T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/learning-angularjs</id>
+   <content type="html">&lt;p&gt;AngularJS is a JavaScript framework developed by Google that makes coding web apps painless, quick, and easy! In this tutorial, I&amp;#39;ll try to guide you through the basics of this framework and what it has to offer.&lt;/p&gt;
+
+&lt;h1 id=&quot;enable&quot;&gt;Enabling AngularJS&lt;/h1&gt;
+
+&lt;p&gt;To install AngularJS into your web project, just head over to &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&amp;#39;s website&lt;/a&gt; and click the download button. This will show you a couple of options. Personally, I use the CDN as the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that AngularJS is available to us, we must tell it where our web app is. This is simply accomplished by including an &lt;code&gt;ng-app&lt;/code&gt; attribute inside the container that houses our app. For now, we&amp;#39;ll put it inside the &lt;code&gt;html&lt;/code&gt; tag as such:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;dataBinding&quot;&gt;Basic Data Binding&lt;/h1&gt;
+
+&lt;p&gt;Now that the installation is complete, we can start with the basics of AngularJS! Data binding permits your web app&amp;#39;s HTML to directly communicate with the app&amp;#39;s JavaScript. Those of you familiar with the &lt;a href=&quot;http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC pattern&lt;/a&gt; (Model-View-Controller) should know that data binding in this framework allows the view and model to directly communicate and update based on the other&amp;#39;s data. The following is an example of data binding:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;user_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ user_name }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here, the &lt;code&gt;ng-model&lt;/code&gt; tells AngularJS to make the data from the &lt;code&gt;input&lt;/code&gt; a variable that can be accessed and manipulated through the web application&amp;#39;s script. In addition, a programmer can output any variables that he/she defines through AngularJS by using double braces ({{ }}) as shown above. In the code, the user&amp;#39;s name is retrieved using &lt;code&gt;ng-model=&amp;quot;user_name&amp;quot;&lt;/code&gt; and then it is displayed in &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; tags using &lt;code&gt;&amp;#123;&amp;#123; user_name &amp;#125;&amp;#125;&lt;/code&gt;. Here&amp;#39;s what it produces:&lt;/p&gt;
+
+&lt;div class=&quot;codepen&quot;&gt;&lt;pre class=&quot;codepen&quot; data-height=&quot;300&quot; data-type=&quot;result&quot; data-href=&quot;cuwyI&quot; data-user=&quot;srig99&quot; data-safe=&quot;true&quot;&gt; &lt;code&gt; &lt;/code&gt; &lt;a href=&quot;http://codepen.io/srig99/pen/cuwyI&quot;&gt;Check out this Pen!&lt;/a&gt; &lt;/pre&gt; &lt;script src=&quot;http://codepen.io/assets/embed/ei.js&quot;&gt; &lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;One can also output answers to simple math using AngularJS. For example, two numbers can be taken from &lt;code&gt;&amp;lt;input type=&amp;quot;number&amp;quot;&amp;gt;&lt;/code&gt; tags and then their sum can be displayed like so:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;number&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;num1&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;number&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;num2&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;The sum is: {{ num1 + num2 }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here&amp;#39;s what the previous code creates:&lt;/p&gt;
+
+&lt;div class=&quot;codepen&quot;&gt;&lt;pre class=&quot;codepen&quot; data-height=&quot;300&quot; data-type=&quot;result&quot; data-href=&quot;Fsila&quot; data-user=&quot;srig99&quot; data-safe=&quot;true&quot;&gt; &lt;code&gt; &lt;/code&gt; &lt;a href=&quot;http://codepen.io/srig99/pen/Fsila&quot;&gt;Check out this Pen!&lt;/a&gt; &lt;/pre&gt; &lt;script src=&quot;http://codepen.io/assets/embed/ei.js&quot;&gt; &lt;/script&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;controllers&quot;&gt;Controllers&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Controllers allow the user to change the web application&amp;#39;s data and thus manipulate the app&amp;#39;s output (or the view in MVC terms).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What if you needed more functionality than the simple apps seen above? Well, AngularJS provides controllers just for that reason! Controllers allow the user to change the web application&amp;#39;s data and thus manipulate the app&amp;#39;s output (or the view in MVC terms). Let&amp;#39;s create a simple app to demonstrate.&lt;/p&gt;
+
+&lt;p&gt;The HTML:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-controller=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;The People App&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;View People&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-repeat=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person in people&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            {{ person.name }} from {{ person.city }}, {{ person.state }}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The JavaScript:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainCtrl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;people&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;John Doe&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;New York City&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;New York&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;John Smith&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Oklahoma City&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Oklahoma&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Henry Black&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Topeka&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Kansas&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;First off, in the HTML, we tell AngularJS that the app uses the controller named &lt;em&gt;MainCtrl&lt;/em&gt; by typing &lt;code&gt;ng-controller=&amp;quot;MainCtrl&amp;quot;&lt;/code&gt; as a &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt; tag attribute. This allows the HTML to communicate with the JavaScript. Next, we use &lt;code&gt;ng-repeat&lt;/code&gt; to loop through each &lt;code&gt;person&lt;/code&gt; in the &lt;code&gt;people&lt;/code&gt; JSON object that is created in the JavaScript code. The following description of &lt;code&gt;ng-repeat&lt;/code&gt; is from the AngularJS &lt;a href=&quot;http://docs.angularjs.org/api/&quot;&gt;API&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The ngRepeat directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item, and $index is set to the item index or key.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Inside each &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; the values for the name, city, and state keys are used from the JSON object using the &lt;code&gt;person&lt;/code&gt; variable defined in &lt;code&gt;ng-repeat&lt;/code&gt;. Let&amp;#39;s take a look at the result of the code above:&lt;/p&gt;
+
+&lt;div class=&quot;codepen&quot;&gt;&lt;pre class=&quot;codepen&quot; data-height=&quot;300&quot; data-type=&quot;result&quot; data-href=&quot;tEAnJ&quot; data-user=&quot;srig99&quot; data-safe=&quot;true&quot;&gt; &lt;code&gt; &lt;/code&gt; &lt;a href=&quot;http://codepen.io/srig99/pen/tEAnJ&quot;&gt;Check out this Pen!&lt;/a&gt; &lt;/pre&gt; &lt;script src=&quot;http://codepen.io/assets/embed/ei.js&quot;&gt; &lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we can add a feature to allow the user to input names into the &lt;code&gt;people&lt;/code&gt; object! First, we will need to modify the HTML as so:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-controller=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;The People App&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;View People&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-repeat=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person in people&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            {{ person.name }} from {{ person.city }}, {{ person.state }}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Add People&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    Enter the person&amp;#39;s name: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    Enter the person&amp;#39;s city: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person_city&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    Enter the person&amp;#39;s state: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person_state&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addPerson()&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Add the Person!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we&amp;#39;ll update the JavaScript as so:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainCtrl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;people&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;John Doe&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;New York City&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;New York&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;John Smith&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Oklahoma City&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Oklahoma&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Henry Black&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Topeka&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Kansas&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addPerson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;people&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person_city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person_state&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person_city&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the HTML, &lt;code&gt;ng-click&lt;/code&gt; allows the &lt;code&gt;MainCtrl&lt;/code&gt; function &lt;code&gt;addPerson()&lt;/code&gt; to get executed when the button is clicked. The function &lt;code&gt;addPerson()&lt;/code&gt; simply pushes the new person, with the data from the three &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; tags, into the &lt;code&gt;people&lt;/code&gt; JSON object. Then, the list we created earlier (to display the people) gets automatically updated with the new person that was just added. Here&amp;#39;s the updated app:&lt;/p&gt;
+
+&lt;div class=&quot;codepen&quot;&gt;&lt;pre class=&quot;codepen&quot; data-height=&quot;300&quot; data-type=&quot;result&quot; data-href=&quot;qEiDH&quot; data-user=&quot;srig99&quot; data-safe=&quot;true&quot;&gt; &lt;code&gt; &lt;/code&gt; &lt;a href=&quot;http://codepen.io/srig99/pen/qEiDH&quot;&gt;Check out this Pen!&lt;/a&gt; &lt;/pre&gt; &lt;script src=&quot;http://codepen.io/assets/embed/ei.js&quot;&gt; &lt;/script&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;filters&quot;&gt;Filters&lt;/h1&gt;
+
+&lt;p&gt;AngularJS filters filter data inside your web application. This can lead to features such as searching, ordering, and more! Let&amp;#39;s add a search functionality to The People App that we have been working on. First, we need to add a new &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; tag for the search text. Then we will need to filter the results in the &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; list using the search text. The new modified code will be:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;en&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-controller=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Learning AngularJS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;The People App&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;View People&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    Search! &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;search&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-repeat=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person in people | filter:search&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            {{ person.name }} from {{ person.city }}, {{ person.state }}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Add People&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    Enter the person&amp;#39;s name: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    Enter the person&amp;#39;s city: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person_city&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    Enter the person&amp;#39;s state: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;person_state&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addPerson()&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Add the Person!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The only new code we needed to add was of course the search &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; and the &lt;code&gt;filter:search&lt;/code&gt; inside the &lt;code&gt;ng-repeat&lt;/code&gt; attribute! The pipe character (|) inside the &lt;code&gt;ng-repeat&lt;/code&gt; simply allows the filter to use the data from the &lt;code&gt;people&lt;/code&gt; JSON object. Let&amp;#39;s view the search in action!&lt;/p&gt;
+
+&lt;div class=&quot;codepen&quot;&gt;&lt;pre class=&quot;codepen&quot; data-height=&quot;300&quot; data-type=&quot;result&quot; data-href=&quot;DrFfs&quot; data-user=&quot;srig99&quot; data-safe=&quot;true&quot;&gt; &lt;code&gt; &lt;/code&gt; &lt;a href=&quot;http://codepen.io/srig99/pen/DrFfs&quot;&gt;Check out this Pen!&lt;/a&gt; &lt;/pre&gt; &lt;script src=&quot;http://codepen.io/assets/embed/ei.js&quot;&gt; &lt;/script&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;directives&quot;&gt;Directives&lt;/h1&gt;
+
+&lt;p&gt;The final topic we will be discovering in AngularJS today will be directives, which are custom HTML elements or attributes created using AngularJS. Making a new directive is simple! Let&amp;#39;s say you wanted to create a directive (we will name it emphasize) which looks like this: &lt;code&gt;&amp;lt;p emphasize&amp;gt;&amp;lt;/p&amp;gt;&lt;/code&gt; or this: &lt;code&gt;&amp;lt;emphasize&amp;gt;&amp;lt;/emphasize&amp;gt;&lt;/code&gt;. First, we will need to declare a module (see &lt;a href=&quot;http://upload.wikimedia.org/wikipedia/commons/f/fd/MVC-Process.png&quot;&gt;this&lt;/a&gt; if you need to see how a model interacts with a view and controller) like so:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;sampleDirective&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we can chain the &lt;code&gt;directive()&lt;/code&gt; method onto the previous code to add a directive to the module.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;sampleDirective&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;emphasize&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;restrict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;E,A&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;span style=&amp;quot;color: red;font-size: 40px;&amp;quot;&amp;gt;This is the emphasize directive!&amp;lt;/span&amp;gt;&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Inside the directive function, we are restricting the directive to only elements and attributes using &lt;code&gt;restrict: &amp;#39;E,A&amp;#39;&lt;/code&gt;. Whenever the emphasize directive is used, the element that contains the attribute or the emphasize tag itself will be replaced with the content present in &lt;code&gt;template&lt;/code&gt; above. You can view the code below!&lt;/p&gt;
+
+&lt;div class=&quot;codepen&quot;&gt;&lt;pre class=&quot;codepen&quot; data-height=&quot;300&quot; data-type=&quot;result&quot; data-href=&quot;qIdBE&quot; data-user=&quot;srig99&quot; data-safe=&quot;true&quot;&gt; &lt;code&gt; &lt;/code&gt; &lt;a href=&quot;http://codepen.io/srig99/pen/qIdBE&quot;&gt;Check out this Pen!&lt;/a&gt; &lt;/pre&gt; &lt;script src=&quot;http://codepen.io/assets/embed/ei.js&quot;&gt; &lt;/script&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;furtherReading&quot;&gt;Further Reading&lt;/h1&gt;
+
+&lt;p&gt;Well, that&amp;#39;s it for now! To discover more about AngularJS, you can go to the framework&amp;#39;s amazing API &lt;a href=&quot;http://docs.angularjs.org/api/&quot;&gt;here&lt;/a&gt; and the AngularJS official website &lt;a href=&quot;http://angularjs.org/&quot;&gt;here&lt;/a&gt;. You can watch some awesome videos on AngularJS &lt;a href=&quot;http://www.egghead.io/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://www.youtube.com/watch?feature=player_detailpage&amp;amp;v=i9MHigUZKEM&quot;&gt;here&lt;/a&gt;. Go to &lt;a href=&quot;http://builtwith.angularjs.org/&quot;&gt;Built With AngularJS&lt;/a&gt; to see actual apps created with AngularJS in action! If you still need resources, check out &lt;a href=&quot;https://github.com/angular/angular.js/wiki/JsFiddle-Examples&quot;&gt;this&lt;/a&gt; exhaustive list of JSFiddles dealing with AngularJS. Thanks for reading and be sure to check out future tutorials that I will be making about AngularJS!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Tools of the Web</title>
+   <link href="http://jrakesh.github.com/blog/tools-of-the-web"/>
+   <updated>2014-01-19T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/tools-of-the-web</id>
+   <content type="html">&lt;p&gt;Hello guys! Today I want to discuss a few prominent tools of the web that are currently being used to enhance the workflows of web developers and software developers all over the world! There are several tools available and therefore, I cannot possibly cover every single one of them. However, I will reveal a few of my favorites. Feel free to include your own tools and workflows in the comments!&lt;/p&gt;
+
+&lt;h1 id=&quot;editors&quot;&gt;Editors&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;&lt;br&gt;
+This has been an extremely popular editor among developers as it contains numerous features, such as multiple cursors and incremental search, and it is actively developed, among other reasons. As I write, a new version, &lt;a href=&quot;http://www.sublimetext.com/3&quot;&gt;Sublime Text 3&lt;/a&gt;, is coming out (currently in beta).&lt;/p&gt;
+
+&lt;p&gt;Price: $70&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.vim.org/&quot;&gt;Vim&lt;/a&gt;&lt;br&gt;
+Vim is for those who have time to adjust to the steep learning curve of it. It takes a while to master Vim, but when you do, it will become an extremely powerful tool in your workflow.&lt;/p&gt;
+
+&lt;p&gt;Price: Free&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://brackets.io/&quot;&gt;Brackets&lt;/a&gt;&lt;br&gt;
+Brackets is an open source editor that is being actively developed/maintained by Adobe. It has features such as built-in live preview (my personal favorite) and a multitude of &lt;a href=&quot;https://github.com/adobe/brackets/wiki/Brackets-Extensions&quot;&gt;extensions&lt;/a&gt; to extend the capabilities of the editor.&lt;/p&gt;
+
+&lt;p&gt;Price: Free&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://macromates.com/&quot;&gt;TextMate&lt;/a&gt;&lt;br&gt;
+TextMate used to be a closed sourced editor that was not free. However, the company decided to make the project open source on Github as of August 9, 2012. It used to be a popular editor before Sublime Text and others such as it took over.&lt;/p&gt;
+
+&lt;p&gt;Price: Free&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;extensions&quot;&gt;Extensions&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe&quot;&gt;Stylish&lt;/a&gt;&lt;br&gt;
+Stylish is an extension that one can use to edit the CSS of any website quickly and efficiently! It also features a saving feature to save your custom CSS styles for future use on any certain website.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm&quot;&gt;Web Developer&lt;/a&gt;&lt;br&gt;
+Web Developer is essentially a toolkit with various features to ease your daily work. For example, it can display class and id details for all the elements on the page or resize the browser to various widths and heights to test your responsive layout!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;webapps&quot;&gt;Web Applications&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://chopapp.com/&quot;&gt;Chop&lt;/a&gt;&lt;br&gt;
+Chop allows you to send code snippets (like &lt;a href=&quot;https://gist.github.com/&quot;&gt;gists&lt;/a&gt;) to your friends! However, the key feature here is that your friend can then comment on your code seamlessly, allowing you to make edits and fixes quickly!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.dirtymarkup.com/&quot;&gt;Dirty Markup&lt;/a&gt;&lt;br&gt;
+Dirty Markup is a code formatter for HTML, CSS, and JavaScript which uses several scripts, such as &lt;a href=&quot;https://github.com/einars/js-beautify&quot;&gt;JS Beautifier&lt;/a&gt; in the background.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;playgrounds&quot;&gt;Web Development Playgrounds&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://codepen.io/&quot;&gt;CodePen&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://jsbin.com/&quot;&gt;JSBin&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://cssdesk.com/&quot;&gt;CSSDesk&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://jsfiddle.net/&quot;&gt;JSFiddle&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://dabblet.com/&quot;&gt;Dabblet&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;closing&quot;&gt;Closing&lt;/h1&gt;
+
+&lt;p&gt;There are several other tools coming out every single day! It&amp;#39;s getting more and more difficult to keep track of all of them! Therefore, please share your knowledge in the comments below so others can benefit and tidy up their workflow. Thanks for reading!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hello Internet</title>
+   <link href="http://jrakesh.github.com/blog/hello-internet"/>
+   <updated>2014-01-12T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/hello-internet</id>
+   <content type="html">&lt;p&gt;I finally got around to setting up a &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; based blog! Yay! It&amp;#39;s really awesome! For all the developers out there, go try it! They have some great documentation to get you started. Also, click &lt;a href=&quot;http://erjjones.github.io/blog/How-I-built-my-blog-in-one-day/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://learn.andrewmunsell.com/learn/jekyll-by-example/&quot;&gt;here&lt;/a&gt; for some great tutorials on making your very own blog based on Jekyll! Anyways, I hope you find the content here helpful! Keep watch for many more posts in the future!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

@@ -1,0 +1,10 @@
+name: "Rakesh Jha"
+author: "Rakesh Jha"
+description: "My personal website/blog!"
+
+markdown: redcarpet
+permalink: "/blog/:title"
+pygments: true
+
+paginate: 5
+paginate_path: "/page/:num"

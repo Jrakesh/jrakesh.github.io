@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Labs | Rakesh Jha</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+      <div style="float:left;">
+        <h1 class="site-title brand">
+            <a href="/">Rakesh Jha</a>
+            <span style="font-family=Audiowide;">rework</span>
+        </h1>
+      </div>
+        
+
+    <div style="float:left; margin-left: 280px;">
+    <nav>
+        <ul class="clearfix">
+            <li><i class="icon-home white-color"></i> <a href="/" class="fanchor">Home</a></li>
+            <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor">Labs</a></li>
+            <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor">Resume</a></li>
+            <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor">Contact</a></li>
+        </ul>
+
+        <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+            <option>Navigation</option>
+            <option value="/">Home</option>
+            <option value="/labs">Labs</option>
+            <option value="/resume">Resume</option>
+            <option value="/contact">Contact</option>
+        </select>
+    </nav>
+    </div>
+
+    <form class="search">
+        <i class="icon-search white-color" ></i>
+        <input type="text" class="search-field" placeholder="Search Posts!" name="search" />
+    </form>
+
+    <div class="search-results white-color"><ul></ul></div>
+    </header>
+
+    <section class="content">
+        	<div class="lab-item">
+		<img src="/img/labs/TVDb.png">
+		<div class="lab-details">
+			<h2 class="lab-title">TVDb</h2>
+			<h5 class="lab-description">Built using <a href="http://angularjs.org/">AngularJS</a> to display available TV shows/movies premieres going to be aired.</h5>
+			<div>
+				<a class="button white-color" href="http://tvdb-angular.herokuapp.com/">Demo</a>
+			</div>
+		</div>
+	</div>
+    </section>
+
+    <footer style="font-size: 12px;">
+        <p style="color: #FFFFFF;">&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;Rakesh Jha. Built with <a href="http://jekyllrb.com/" class="fanchor">Jekyll</a>. Hosted on <a href="https://github.com/jrakesh/jrakesh.github.io" class="fanchor">GitHub</a>.
+    </footer>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49021669-1', 'jrakesh.github.io');
+        ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript">var disqus_shortname='jrakesh';(function(){var s=document.createElement('script');s.async=true;s.type='text/javascript';s.src='//'+disqus_shortname+'.disqus.com/count.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s)}());</script>
+    
+</body>
+
+</html>

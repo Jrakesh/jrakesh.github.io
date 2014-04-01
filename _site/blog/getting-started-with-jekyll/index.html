@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Getting Started with Jekyll | Rakesh Jha</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+      <div style="float:left;">
+        <h1 class="site-title brand">
+            <a href="/">Rakesh Jha</a>
+            <span style="font-family=Audiowide;">rework</span>
+        </h1>
+      </div>
+        
+
+    <div style="float:left; margin-left: 280px;">
+    <nav>
+        <ul class="clearfix">
+            <li><i class="icon-home white-color"></i> <a href="/" class="fanchor">Home</a></li>
+            <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor">Labs</a></li>
+            <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor">Resume</a></li>
+            <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor">Contact</a></li>
+        </ul>
+
+        <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+            <option>Navigation</option>
+            <option value="/">Home</option>
+            <option value="/labs">Labs</option>
+            <option value="/resume">Resume</option>
+            <option value="/contact">Contact</option>
+        </select>
+    </nav>
+    </div>
+
+    <form class="search">
+        <i class="icon-search white-color" ></i>
+        <input type="text" class="search-field" placeholder="Search Posts!" name="search" />
+    </form>
+
+    <div class="search-results white-color"><ul></ul></div>
+    </header>
+
+    <section class="content">
+        <a href="#" class="go-top smoothScroll">Back to Top</a>
+
+<section class="post-info module">
+	<h1 class="post-title">Getting Started with Jekyll</h1>
+	<p class="post-date">Published on 15 March 2014 with <a href="#disqus_thread" class="smoothScroll"></a>.</p>
+</section>
+
+
+<div class="module">
+	<h1>Table of Contents</h1>
+	<ul class="toc"></ul>
+</div>
+
+
+<article class="post">
+	<p>Let&#39;s say you need an easy way to create a blog within minutes. Well, <a href="http://jekyllrb.com/">Jekyll</a> does exactly that! It&#39;s a highly popular tool in the modern blogging field!</p>
+
+<h1 id="what">What is it?</h1>
+
+<p>Jekyll is a static site generator built using Ruby. It allows you to write basic HTML and CSS to create a fully functional website that&#39;s ready for your server! You can also use <a href="http://daringfireball.net/projects/markdown/">Markdown</a> for your posts and <a href="https://github.com/Shopify/liquid/#readme">Liquid</a> for templating.</p>
+
+<h1 id="how">How do I get started?</h1>
+
+<p>First, open up Command Prompt or Terminal depending on your operating system. Next, install Jekyll onto your system:</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">gem install jekyll</span>
+</code></pre></div>
+
+<p>Then, create a new site using:</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">jekyll new my-amazing-site</span>
+</code></pre></div>
+
+<p>Next, go into the newly created site directory and set up a server to watch for changes.</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">cd my-amazing-site</span>
+<span class="go">jekyll serve --watch</span>
+</code></pre></div>
+
+<p>Now that the server is set up, we can point our browser to <code>localhost:4000</code> in order to view our newly generated site! It should look something like the following:</p>
+
+<figure><img src="/img/posts/jekyll-new-site.png" alt="A new Jekyll blog"><figcaption>A new blog created with Jekyll</figcaption></figure>
+
+<h1 id="directory">Directory Structure</h1>
+
+<p>Jekyll blogs often have a directory structure similar to the one below:</p>
+
+<ul>
+<li>  _config.yml</li>
+<li>  _layouts
+
+<ul>
+<li>  default.html</li>
+<li>  post.html</li>
+</ul></li>
+<li>  _posts
+
+<ul>
+<li>  2013-06-03-a-great-post.md</li>
+</ul></li>
+<li>  _site</li>
+<li>  css
+
+<ul>
+<li>  styles.css</li>
+<li>  syntax.css</li>
+</ul></li>
+<li>  index.html</li>
+</ul>
+
+<p>Jekyll populates the <code>_site</code> folder with the compiled blog. The configuration for your blog is stored in <code>_config.yml</code>. A sample configuration is shown below:</p>
+
+<div class="highlight"><pre><code class="yaml"><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My Awesome Website!</span>
+<span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">This is an amazing site I made a while ago!</span>
+
+<span class="l-Scalar-Plain">paginate</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">6</span>
+
+<span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rdiscount</span>
+<span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pretty</span>
+<span class="l-Scalar-Plain">pygments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</code></pre></div>
+
+<p>The posts for the blog are put into the <code>_posts</code> directory. These files can be written using HTML or Markdown. Jekyll blog posts must be named with a specific date prefix, as shown above. They must be named in the following format: <code>year-month-day-title-with-dashes-for-separation.md</code>.</p>
+
+<h1 id="adjusting">Adjusting your blog</h1>
+
+<blockquote>
+<p>Layouts allow you to define a template that a set of HTML files will follow.</p>
+</blockquote>
+
+<p>What if you wanted to define a standard template for all of your posts? How about making a separate one for the non-post pages on your blog, such as the About or Resume pages? Well, Jekyll allows you to accomplish both of these tasks using something called layouts. Layouts allow you to define a template that a set of HTML files will follow. Two layouts are already provided for you in the <code>_layouts</code> folder if you executed the <code>jekyll new</code> command previously. The <code>default.html</code> template is for non-post pages and the other one, <code>post.html</code>, is for posts. Changing these files will allow you to change all of your non-post or post pages at once, which is extremely useful for implementing something that will be consistent throughout several pages! For example, you can make a header with navigation and a logo for each page.</p>
+
+<h1 id="styling">Styling</h1>
+
+<p>In order to change the styling, use the <code>css</code> directory. The <code>syntax.css</code> file contains code highlighting styles, while the <code>styles.css</code> is for general site styles.</p>
+
+<h1 id="posting">Post, post, post!</h1>
+
+<p>Now that the Jekyll blog is set up, start posting! To write a new post, make a new file in <code>_posts</code>, but don&#39;t forget to include the date prefix that was previously mentioned! Once the file is created, you will have to define the title and layout of the post using YAML inside the file. This is called <em>front matter</em>. Say I have a post named <em>All About Rainbows</em>. Then I&#39;ll have to fill the file with the following:</p>
+
+<div class="highlight"><pre><code class="yaml"><span class="nn">---</span>
+<span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">All About Rainbows</span>
+<span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">post</span>
+<span class="nn">---</span>
+</code></pre></div>
+
+<p>This tells Jekyll that I want to use the <code>post.html</code> template inside of the <code>_layouts</code> folder that we previously talked about. Then, I can start writing in Markdown (or HTML if I made a .html file):</p>
+
+<div class="highlight"><pre><code class="text">---
+title: All About Rainbows
+layout: post
+---
+
+# Introduction
+
+Yes, rainbows are amazing, but do you know everything about them?
+
+...
+</code></pre></div>
+
+<h1 id="moreInfo">More Information</h1>
+
+<p>This was just a preview of Jekyll as there is much more to learn! You can find out more about Jekyll and its various other features by visiting their amazing <a href="http://jekyllrb.com/docs/home/">documentation site</a>. Thanks for reading!</p>
+
+
+	
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<div id="disqus_thread"></div>
+	
+
+	
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+		<a class="addthis_button_facebook"></a>
+		<a class="addthis_button_twitter"></a>
+		<a class="addthis_button_google_plusone_share"></a>
+		<a class="addthis_button_hackernews"></a>
+		<a class="addthis_button_pocket"></a>
+		<a class="addthis_button_email"></a>
+	</div>
+	<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-532547b50394f742"></script>
+	
+
+	<section class="pagination post">
+		
+			<a href="/blog/unix-terminal-commands" class="previous"><i class="icon-circle-arrow-left"></i></a>
+		
+		
+			<span class="next disabled"><i class="icon-circle-arrow-right"></i></span>
+		
+	</section>
+</article>
+    </section>
+
+    <footer style="font-size: 12px;">
+        <p style="color: #FFFFFF;">&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;Rakesh Jha. Built with <a href="http://jekyllrb.com/" class="fanchor">Jekyll</a>. Hosted on <a href="https://github.com/jrakesh/jrakesh.github.io" class="fanchor">GitHub</a>.
+    </footer>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <script>
+        var toc = $('.toc')
+        $.each($('.post h1[id]'), function(i,v) {
+            toc.append('<li><a href="#' + $(v).attr('id') + '" class="smoothScroll">' + $(v).text() + '</a></li>');
+        });
+    </script>
+    
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49021669-1', 'jrakesh.github.io');
+        ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript">var disqus_shortname='jrakesh';(function(){var s=document.createElement('script');s.async=true;s.type='text/javascript';s.src='//'+disqus_shortname+'.disqus.com/count.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s)}());</script>
+    
+    <script type="text/javascript">var disqus_shortname='jrakesh';(function(){var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq)})();</script>
+    
+</body>
+
+</html>
