@@ -7,11 +7,15 @@
     <title>Resume | Rakesh Jha</title>
     <meta name="viewport" content="width=device-width">
 
-    <link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -21,7 +25,7 @@
     <header>
       <div style="float:left;">
         <h1 class="site-title brand">
-            <a href="/">Rakesh Jha</a>
+            <a href="/" class="prime">Rakesh Jha</a>
             <span style="font-family=Audiowide;">rework</span>
         </h1>
       </div>
@@ -30,18 +34,18 @@
     <div style="float:left; margin-left: 280px;">
     <nav>
         <ul class="clearfix">
-            <li><i class="icon-home white-color"></i> <a href="/" class="fanchor">Home</a></li>
-            <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor">Labs</a></li>
-            <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor">Resume</a></li>
-            <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor">Contact</a></li>
+            <li><i class="icon-home white-color"></i> <a href="/" class="fanchor header-nav">HOME</a></li>
+            <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor header-nav">LABS</a></li>
+            <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor header-nav">RESUME</a></li>
+            <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor header-nav">CONTACT</a></li>
         </ul>
 
         <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
             <option>Navigation</option>
-            <option value="/">Home</option>
-            <option value="/labs">Labs</option>
-            <option value="/resume">Resume</option>
-            <option value="/contact">Contact</option>
+            <option value="/">HOME</option>
+            <option value="/labs">LABS</option>
+            <option value="/resume">RESUME</option>
+            <option value="/contact">CONTACT</option>
         </select>
     </nav>
     </div>
@@ -51,39 +55,59 @@
         <input type="text" class="search-field" placeholder="Search Posts!" name="search" />
     </form>
 
-    <div class="search-results white-color"><ul></ul></div>
+    <div class="search-results white-color header-nav"><ul></ul></div>
     </header>
 
     <section class="content">
-        <h1>Skills</h1>
+        <div id="resume">
+<h1>Skills:</h1>
 
 <ol>
-<li><h2>Web Application Development</h2>
+  <li>
+		<h4>Programming Languages</h4>
+		<p>C, C++, Cobol, Ruby, Java, JavaScript</p>
+	</li>
+  <li>
+		<h4>Web Application Development</h4>
+		<p>Ruby on Rails, jQuery, CoffeeScript, AJAX, CSS, HTML, MySQL, BackboneJS, AngularJS, TDD/ BDD approaches with rspec-capybara-factory-girls and Social-media/ third-party integrations.</p>
+	</li>
 
-<p>Knowledge of Ruby on Rails, Ruby, JavaScript, jQuery, CoffeeScript, AJAX, CSS, HTML, MySQL, BackboneJS, AngularJS, Heroku, Amazon Web Services and Social media integrations.</p></li>
-<li><h2>Software Familiar With</h2>
+	<li>
+		<h4>Familiar With</h4>
+		<p>Heroku, Amazon Web Services, Git, Bitbucket, Capistrano Deployments, Sublime Text, Netbeans.</p>
+	</li>
 
-<p><a href="http://www.sublimetext.com/">Sublime Text</a>, <a href="http://www.eclipse.org/">Eclipse</a>, <a href="http://mac.github.com/">Github Application</a>, and Terminal.</p></li>
+	<li>
+		<h4>Database Servers</h4>
+		<p>MySQL, PostgreSQL</p>
+	</li>
+
+	<li>
+		<h4>Cross-platform Proficiency</h4>
+		<p>Various Windows and Linux flavors</p>
+	</li>
 </ol>
 
-<h1>Open Source Projects</h1>
 
+<h1>Open-source Projects:</h1>
 <ol>
-<li><h2>TVDb</h2>
-
-<p>TVDb app is extensively built using AngularJS to display available TV shows/movies premieres going to be aired. Have a look at the <a href="http://tvdb-angular.herokuapp.com/">demo</a>. Browse <a href="https://github.com/Jrakesh/tvdb">source code</a>.</p></li>
-<li><h2>GoSocial</h2>
-
-<p>My first rubygem that provide a quick soultion to include common social widgets that are used too often in every web app these days. It supports 12 outstanding widgets across 4 different social media. Browse <a href="https://github.com/Jrakesh/go_social">source code</a>.</p></li>
-<li><h2>Rails Starter Apps</h2>
-
-<p>Created some of the basic starter Rails v4.1 apps with the latest available gems and best-practices. Share, learn and code, enjoy the stuff. Browse source codes: <a href="https://github.com/Jrakesh/rails4-devise-pundit-bootstrap">rails4-devise-pundit-bootstrap</a>, <a href="https://github.com/Jrakesh/rails4-devise-cancan-bootstrap">rails4-devise-cancan-bootstrap</a>, <a href="https://github.com/Jrakesh/rails4-kickoff">rails4-kickoff</a>.</p></li>
+  <li>
+    <h4>TVDb</h4>
+		<p>TVDb app is extensively built using AngularJS to display available TV shows/movies premieres going to be aired. Have a look at the <a href="http://tvdb-angular.herokuapp.com/">demo</a>. Browse <a href="https://github.com/Jrakesh/tvdb">source code</a>.</p>
+  </li>
+	<li>
+	  <h4>GoSocial</h4>
+		<p>Published my first rubygem that provides a quick soultion to embed common social-widgets used too often in most web applications these days. It supports 12 outstanding widgets across 4 different social-media. Browse <a href="https://github.com/Jrakesh/go_social">source code</a>.</p>
+	</li>
+	<li>
+		<h4>Rails Starter Apps</h4>
+		<p>Created some of the basic starter Rails v4.1 apps with the latest available gems and best-practices. Share, learn and code, enjoy the stuff. Browse source codes: <a href="https://github.com/Jrakesh/rails4-devise-pundit-bootstrap">rails4-devise-pundit-bootstrap</a>, <a href="https://github.com/Jrakesh/rails4-devise-cancan-bootstrap">rails4-devise-cancan-bootstrap</a>, <a href="https://github.com/Jrakesh/rails4-kickoff">rails4-kickoff</a>.</p>
+	</li>
 </ol>
 
-<h1>Contributions</h1>
-
-<p>To see my quick experiments and other open source projects, visit my <a href="https://github.com/Jrakesh">Github Profile</a>.</p>
-
+<h1>Contributions:</h1>
+<p>To see my quick experiments and other open-source projects, visit my <a href="https://github.com/Jrakesh">Github Profile</a>.</p>
+</div>
     </section>
 
     <footer style="font-size: 12px;">

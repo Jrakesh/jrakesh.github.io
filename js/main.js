@@ -63,4 +63,8 @@ $(function() {
         if (!found)
             results.append('<li><p>Sorry, but what you were looking for was not found!</p></li>');
     }
+
+    if ($('#resume').length > 0) {
+      $('section').removeClass('content').addClass('resume-content');
+    }
 });
