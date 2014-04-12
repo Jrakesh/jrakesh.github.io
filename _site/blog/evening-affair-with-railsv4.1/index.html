@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Evening affair with Rails v4.1.0 | Rakesh Jha</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+      <div style="float:left;">
+        <h1 class="site-title brand">
+            <a href="/" class="prime">Rakesh Jha</a>
+            <span style="font-family=Audiowide;">rework</span>
+        </h1>
+      </div>
+        
+
+    <div style="float:left; margin-left: 280px;">
+    <nav>
+        <ul class="clearfix">
+            <li><i class="icon-home white-color"></i> <a href="/" class="fanchor header-nav">HOME</a></li>
+            <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor header-nav">LABS</a></li>
+            <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor header-nav">RESUME</a></li>
+            <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor header-nav">CONTACT</a></li>
+        </ul>
+
+        <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+            <option>Navigation</option>
+            <option value="/">HOME</option>
+            <option value="/labs">LABS</option>
+            <option value="/resume">RESUME</option>
+            <option value="/contact">CONTACT</option>
+        </select>
+    </nav>
+    </div>
+
+    <form class="search">
+        <i class="icon-search white-color" ></i>
+        <input type="text" class="search-field" placeholder="Search Posts!" name="search" />
+    </form>
+
+    <div class="search-results white-color header-nav"><ul></ul></div>
+    </header>
+
+    <section class="content">
+        <a href="#" class="go-top smoothScroll">Back to Top</a>
+
+<section class="post-info module">
+	<h1 class="post-title">Evening affair with Rails v4.1.0</h1>
+	<p class="post-date">Published on 12 April 2014 with <a href="#disqus_thread" class="smoothScroll"></a>.</p>
+</section>
+
+
+<div class="module">
+	<h1>Table of Contents</h1>
+	<ul class="toc"></ul>
+</div>
+
+
+<article class="post">
+	<p>Hello blog lovers! Rails 4.1.0 is out there. Let&#39;s go over some of my favorite new goodies that it offers, along with some thoughts on why I think they are useful.</p>
+
+<h1 id="spring">Spring</h1>
+
+<p><a href="https://github.com/rails/spring">Spring</a> is the new application preloader. An average Rails app probably take around ~5 seconds to boot. That’s 5 seconds wasted every time you run your tests, even when you are just running a single isolated test case! If you are following TDD, you are probably doing this 50 times a day. That’s 5 days wasted in the last five years! Luckily for all of us, new applications generated with Rails 4.1 comes with built-in integration with the spring application preloader. With Spring, your application is a persistent process that can be reused across commands, so only the first run is slow. And it automatically detect code changes, and reload just those parts. It makes a big difference!</p>
+
+<h1 id="mailerPreview">Mailer Preview</h1>
+
+<p>It makes testing an email template while developing dead simple! Fortunately for us, <a href="https://github.com/pixeltrix">@pixeltrix</a> did the hard work to integrate the <a href="https://github.com/basecamp/mail_view">MailView</a> gem into Rails 4.1. You can now easily create previews for your mailers and view them in the browser from http://localhost:3000/rails/mailers:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="c1"># In /test/mailers/previews/notifier_preview.rb</span>
+<span class="k">class</span> <span class="nc">NotifierPreview</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Preview</span>
+  <span class="k">def</span> <span class="nf">welcome</span>
+    <span class="c1"># Mock up some data for the preview</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>
+
+    <span class="c1"># Return a Mail::Message here (but don&#39;t deliver it!)</span>
+    <span class="no">Notifier</span><span class="o">.</span><span class="n">welcome</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p>It should be noted that although the preview files live under the test directory by default (which can be changed via config.action<em>mailer.preview</em>path).</p>
+
+<h1 id="enums">Enums</h1>
+
+<p>Enums to the rescue! Have you ever used multiple boolean columns to compose a single complex state on your models? I’ve definitely done this before and things get out of hand really quickly.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Issue</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="c1"># Relevant schema change looks like this:</span>
+  <span class="c1">#</span>
+  <span class="c1"># create_table :issues do |t|</span>
+  <span class="c1">#   t.column :status, :integer, default: 0 # defaults to the first value (i.e. :new)</span>
+  <span class="c1"># end</span>
+
+  <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">:assigned</span><span class="p">,</span> <span class="ss">:in_progress</span><span class="p">,</span> <span class="ss">:resolved</span><span class="p">,</span> <span class="ss">:rejected</span><span class="p">,</span> <span class="ss">:reopened</span> <span class="o">]</span>
+
+  <span class="n">belongs_to</span> <span class="ss">:assignee</span><span class="p">,</span> <span class="n">class_name</span><span class="p">:</span> <span class="s1">&#39;Developer&#39;</span>
+
+  <span class="k">def</span> <span class="nf">assignee</span><span class="o">=</span><span class="p">(</span><span class="n">developer</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">developer</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">new?</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:assigned</span>
+    <span class="k">else</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:new</span>
+    <span class="k">end</span>
+
+    <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Issue</span><span class="o">.</span><span class="n">resolved</span>           <span class="c1"># =&gt; a scope to find all resolved bugs</span>
+
+<span class="no">Issue</span><span class="o">.</span><span class="n">resolved?</span>          <span class="c1"># =&gt; check if issue has the status :resolved</span>
+
+<span class="no">Issue</span><span class="o">.</span><span class="n">resolved!</span>          <span class="c1"># =&gt; update! the issue with status set to :resolved</span>
+
+<span class="no">Issue</span><span class="o">.</span><span class="n">status</span>             <span class="c1"># =&gt; a symbol describing the issue&#39;s status</span>
+
+<span class="no">Issue</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:resolved</span> <span class="c1"># =&gt; set the issue&#39;s status to :resolved</span>
+</code></pre></div>
+
+<p>Internally, these states are mapped to integers in the database to save space. It’s also worth mentioning that the methods added by the enum macro are mixed-in via a module. This means you can easily override them in your model and use super to reach the original implementation.</p>
+
+<h1 id="actionPackVariants">Action Pack Variants</h1>
+
+<p>With Action Pack Variants in Rails v4.1, you can tailor your views to serve the most relevant content and workflow for specific device categories. You can now have individual templates for the desktop, tablet, and phone views while sharing all the same controller logic.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">before_action</span> <span class="ss">:detect_device_variant</span>
+
+  <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">detect_device_variant</span>
+      <span class="k">case</span> <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span>
+      <span class="k">when</span> <span class="sr">/iPad/i</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:tablet</span>
+      <span class="k">when</span> <span class="sr">/iPhone/i</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:phone</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">PostController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+
+    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">json</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">html</span>               <span class="c1"># /app/views/posts/show.html.erb</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">phone</span>         <span class="c1"># /app/views/posts/show.html+phone.erb</span>
+      <span class="nb">format</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">tablet</span> <span class="k">do</span>
+        <span class="vi">@show_edit_link</span> <span class="o">=</span> <span class="kp">false</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p>This example sets up a before<em>action filter to match the User-Agent HTTP header against certain keywords, and assign the request.variant accordingly. By specifying the supported variants in the respond</em>to block, Rails will render the appropiate template for the specific format and variant combination. It also allows you to run additional variant-specific code by passing a block.</p>
+
+<h1 id="secrets">Secrets.yml</h1>
+
+<p>A really awesome security change. In the config folder of Rails 4.1, you will now find a secrets.yml file. This is used to manage the secret<em>key</em>base for your application. Additionally, this file can be used to store other keys like the ones used for external APIs.</p>
+
+
+	
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<div id="disqus_thread"></div>
+	
+
+	
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+		<a class="addthis_button_facebook"></a>
+		<a class="addthis_button_twitter"></a>
+		<a class="addthis_button_google_plusone_share"></a>
+		<a class="addthis_button_email"></a>
+	</div>
+	<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-532547b50394f742"></script>
+	
+
+	<section class="pagination post">
+		
+			<a href="/blog/hello-internet" class="previous"><i class="icon-circle-arrow-left"></i></a>
+		
+		
+			<span class="next disabled"><i class="icon-circle-arrow-right"></i></span>
+		
+	</section>
+</article>
+    </section>
+
+    <footer style="font-size: 12px;">
+        <p style="color: #FFFFFF;">&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;Rakesh Jha. Built with <a href="http://jekyllrb.com/" class="fanchor">Jekyll</a>. Hosted on <a href="https://github.com/jrakesh/jrakesh.github.io" class="fanchor">GitHub</a>.
+    </footer>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <script>
+        var toc = $('.toc')
+        $.each($('.post h1[id]'), function(i,v) {
+            toc.append('<li><a href="#' + $(v).attr('id') + '" class="smoothScroll">' + $(v).text() + '</a></li>');
+        });
+    </script>
+    
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-49021669-1', 'jrakesh.github.io');
+        ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript">var disqus_shortname='jrakesh';(function(){var s=document.createElement('script');s.async=true;s.type='text/javascript';s.src='//'+disqus_shortname+'.disqus.com/count.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s)}());</script>
+    
+    <script type="text/javascript">var disqus_shortname='jrakesh';(function(){var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq)})();</script>
+    
+</body>
+
+</html>

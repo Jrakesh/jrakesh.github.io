@@ -4,12 +4,132 @@
  <title>Rakesh Jha</title>
  <link href="http://jrakesh.github.io/atom.xml" rel="self"/>
  <link href="http://jrakesh.github.io/"/>
- <updated>2014-04-12T16:56:58+05:30</updated>
+ <updated>2014-04-12T19:12:57+05:30</updated>
  <id>http://jrakesh.github.io/</id>
  <author>
    <name>Rakesh Jha</name>
  </author>
  
+ 
+ <entry>
+   <title>Evening affair with Rails v4.1.0</title>
+   <link href="http://jrakesh.github.com/blog/evening-affair-with-railsv4.1"/>
+   <updated>2014-04-12T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/evening-affair-with-railsv4.1</id>
+   <content type="html">&lt;p&gt;Hello blog lovers! Rails 4.1.0 is out there. Let&amp;#39;s go over some of my favorite new goodies that it offers, along with some thoughts on why I think they are useful.&lt;/p&gt;
+
+&lt;h1 id=&quot;spring&quot;&gt;Spring&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/rails/spring&quot;&gt;Spring&lt;/a&gt; is the new application preloader. An average Rails app probably take around ~5 seconds to boot. That’s 5 seconds wasted every time you run your tests, even when you are just running a single isolated test case! If you are following TDD, you are probably doing this 50 times a day. That’s 5 days wasted in the last five years! Luckily for all of us, new applications generated with Rails 4.1 comes with built-in integration with the spring application preloader. With Spring, your application is a persistent process that can be reused across commands, so only the first run is slow. And it automatically detect code changes, and reload just those parts. It makes a big difference!&lt;/p&gt;
+
+&lt;h1 id=&quot;mailerPreview&quot;&gt;Mailer Preview&lt;/h1&gt;
+
+&lt;p&gt;It makes testing an email template while developing dead simple! Fortunately for us, &lt;a href=&quot;https://github.com/pixeltrix&quot;&gt;@pixeltrix&lt;/a&gt; did the hard work to integrate the &lt;a href=&quot;https://github.com/basecamp/mail_view&quot;&gt;MailView&lt;/a&gt; gem into Rails 4.1. You can now easily create previews for your mailers and view them in the browser from http://localhost:3000/rails/mailers:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# In /test/mailers/previews/notifier_preview.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NotifierPreview&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionMailer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Preview&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;welcome&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Mock up some data for the preview&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FactoryGirl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Return a Mail::Message here (but don&amp;#39;t deliver it!)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Notifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;welcome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It should be noted that although the preview files live under the test directory by default (which can be changed via config.action&lt;em&gt;mailer.preview&lt;/em&gt;path).&lt;/p&gt;
+
+&lt;h1 id=&quot;enums&quot;&gt;Enums&lt;/h1&gt;
+
+&lt;p&gt;Enums to the rescue! Have you ever used multiple boolean columns to compose a single complex state on your models? I’ve definitely done this before and things get out of hand really quickly.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Issue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Relevant schema change looks like this:&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# create_table :issues do |t|&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#   t.column :status, :integer, default: 0 # defaults to the first value (i.e. :new)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:assigned&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:in_progress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:resolved&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:rejected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reopened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:assignee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Developer&amp;#39;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;assignee&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;developer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;developer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new?&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:assigned&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Issue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolved&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; a scope to find all resolved bugs&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Issue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolved?&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; check if issue has the status :resolved&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Issue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolved!&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; update! the issue with status set to :resolved&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Issue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; a symbol describing the issue&amp;#39;s status&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Issue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:resolved&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; set the issue&amp;#39;s status to :resolved&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Internally, these states are mapped to integers in the database to save space. It’s also worth mentioning that the methods added by the enum macro are mixed-in via a module. This means you can easily override them in your model and use super to reach the original implementation.&lt;/p&gt;
+
+&lt;h1 id=&quot;actionPackVariants&quot;&gt;Action Pack Variants&lt;/h1&gt;
+
+&lt;p&gt;With Action Pack Variants in Rails v4.1, you can tailor your views to serve the most relevant content and workflow for specific device categories. You can now have individual templates for the desktop, tablet, and phone views while sharing all the same controller logic.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:detect_device_variant&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;detect_device_variant&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_agent&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/iPad/i&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variant&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:tablet&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/iPhone/i&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variant&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:phone&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;# /app/views/posts/show.html.erb&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;phone&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# /app/views/posts/show.html+phone.erb&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tablet&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;vi&quot;&gt;@show_edit_link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This example sets up a before&lt;em&gt;action filter to match the User-Agent HTTP header against certain keywords, and assign the request.variant accordingly. By specifying the supported variants in the respond&lt;/em&gt;to block, Rails will render the appropiate template for the specific format and variant combination. It also allows you to run additional variant-specific code by passing a block.&lt;/p&gt;
+
+&lt;h1 id=&quot;secrets&quot;&gt;Secrets.yml&lt;/h1&gt;
+
+&lt;p&gt;A really awesome security change. In the config folder of Rails 4.1, you will now find a secrets.yml file. This is used to manage the secret&lt;em&gt;key&lt;/em&gt;base for your application. Additionally, this file can be used to store other keys like the ones used for external APIs.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hello Internet</title>
+   <link href="http://jrakesh.github.com/blog/hello-internet"/>
+   <updated>2014-03-23T00:00:00+05:30</updated>
+   <id>http://jrakesh.github.com/blog/hello-internet</id>
+   <content type="html">&lt;p&gt;I finally got around to setting up a &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; based blog! Yay! It&amp;#39;s really awesome! For all the developers out there, go try it! They have some great documentation to get you started. Also, click &lt;a href=&quot;http://erjjones.github.io/blog/How-I-built-my-blog-in-one-day/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://learn.andrewmunsell.com/learn/jekyll-by-example/&quot;&gt;here&lt;/a&gt; for some great tutorials on making your very own blog based on Jekyll! Anyways, I hope you find the content here helpful! Keep watch for many more posts in the future!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Getting Started with Jekyll</title>
@@ -713,15 +833,6 @@ Dirty Markup is a code formatter for HTML, CSS, and JavaScript which uses severa
 &lt;h1 id=&quot;closing&quot;&gt;Closing&lt;/h1&gt;
 
 &lt;p&gt;There are several other tools coming out every single day! It&amp;#39;s getting more and more difficult to keep track of all of them! Therefore, please share your knowledge in the comments below so others can benefit and tidy up their workflow. Thanks for reading!&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Hello Internet</title>
-   <link href="http://jrakesh.github.com/blog/hello-internet"/>
-   <updated>2014-01-12T00:00:00+05:30</updated>
-   <id>http://jrakesh.github.com/blog/hello-internet</id>
-   <content type="html">&lt;p&gt;I finally got around to setting up a &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; based blog! Yay! It&amp;#39;s really awesome! For all the developers out there, go try it! They have some great documentation to get you started. Also, click &lt;a href=&quot;http://erjjones.github.io/blog/How-I-built-my-blog-in-one-day/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://learn.andrewmunsell.com/learn/jekyll-by-example/&quot;&gt;here&lt;/a&gt; for some great tutorials on making your very own blog based on Jekyll! Anyways, I hope you find the content here helpful! Keep watch for many more posts in the future!&lt;/p&gt;
 </content>
  </entry>
  
