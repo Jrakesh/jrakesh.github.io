@@ -111,7 +111,7 @@ class PostController < ApplicationController
 end
 {% endhighlight %}
 
-This example sets up a before_action filter to match the User-Agent HTTP header against certain keywords, and assign the request.variant accordingly. By specifying the supported variants in the respond_to block, Rails will render the appropiate template for the specific format and variant combination. It also allows you to run additional variant-specific code by passing a block.
+This example sets up a 'before_action' filter to match the User-Agent HTTP header against certain keywords, and assign the request.variant accordingly. By specifying the supported variants in the 'respond_to' block, Rails will render the appropiate template for the specific format and variant combination. It also allows you to run additional variant-specific code by passing a block.
 
 
 

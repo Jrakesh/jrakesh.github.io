@@ -4,7 +4,7 @@
  <title>Rakesh Jha</title>
  <link href="http://jrakesh.github.io/atom.xml" rel="self"/>
  <link href="http://jrakesh.github.io/"/>
- <updated>2014-04-12T19:17:02+05:30</updated>
+ <updated>2014-04-12T20:15:14+05:30</updated>
  <id>http://jrakesh.github.io/</id>
  <author>
    <name>Rakesh Jha</name>
@@ -114,7 +114,7 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;This example sets up a before&lt;em&gt;action filter to match the User-Agent HTTP header against certain keywords, and assign the request.variant accordingly. By specifying the supported variants in the respond&lt;/em&gt;to block, Rails will render the appropiate template for the specific format and variant combination. It also allows you to run additional variant-specific code by passing a block.&lt;/p&gt;
+&lt;p&gt;This example sets up a &amp;#39;before&lt;em&gt;action&amp;#39; filter to match the User-Agent HTTP header against certain keywords, and assign the request.variant accordingly. By specifying the supported variants in the &amp;#39;respond&lt;/em&gt;to&amp;#39; block, Rails will render the appropiate template for the specific format and variant combination. It also allows you to run additional variant-specific code by passing a block.&lt;/p&gt;
 
 &lt;h1 id=&quot;secrets&quot;&gt;Secrets.yml&lt;/h1&gt;
 
