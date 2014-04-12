@@ -4,7 +4,7 @@
  <title>Rakesh Jha</title>
  <link href="http://jrakesh.github.io/atom.xml" rel="self"/>
  <link href="http://jrakesh.github.io/"/>
- <updated>2014-04-12T19:12:57+05:30</updated>
+ <updated>2014-04-12T19:17:02+05:30</updated>
  <id>http://jrakesh.github.io/</id>
  <author>
    <name>Rakesh Jha</name>
@@ -12,11 +12,11 @@
  
  
  <entry>
-   <title>Evening affair with Rails v4.1.0</title>
-   <link href="http://jrakesh.github.com/blog/evening-affair-with-railsv4.1"/>
+   <title>An evening affair with Rails v4.1.0</title>
+   <link href="http://jrakesh.github.com/blog/an-evening-affair-with-railsv4.1"/>
    <updated>2014-04-12T00:00:00+05:30</updated>
-   <id>http://jrakesh.github.com/blog/evening-affair-with-railsv4.1</id>
-   <content type="html">&lt;p&gt;Hello blog lovers! Rails 4.1.0 is out there. Let&amp;#39;s go over some of my favorite new goodies that it offers, along with some thoughts on why I think they are useful.&lt;/p&gt;
+   <id>http://jrakesh.github.com/blog/an-evening-affair-with-railsv4.1</id>
+   <content type="html">&lt;p&gt;Hello rails lovers! Rails 4.1.0 is out there. Let&amp;#39;s go over some of my favorite new goodies that it offers, along with some thoughts on why I think they are useful.&lt;/p&gt;
 
 &lt;h1 id=&quot;spring&quot;&gt;Spring&lt;/h1&gt;
 

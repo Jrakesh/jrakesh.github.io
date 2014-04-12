@@ -1,12 +1,12 @@
 ---
-title: Evening affair with Rails v4.1.0
+title: An evening affair with Rails v4.1.0
 layout: post
 toc: true
 share: true
 comments: true
 ---
 
-Hello blog lovers! Rails 4.1.0 is out there. Let's go over some of my favorite new goodies that it offers, along with some thoughts on why I think they are useful.
+Hello rails lovers! Rails 4.1.0 is out there. Let's go over some of my favorite new goodies that it offers, along with some thoughts on why I think they are useful.
 
 
 
