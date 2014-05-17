@@ -18,9 +18,11 @@ body {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
     line-height: 1.6875;
-    color: #222222;
-    background: #ecf0f1;
+    color: #2C3E50;
+    background-size: cover;
     font-size: 12 px;
+    background: url('/img/corner.png') fixed;
+    z-index: 1
 }
 a {
     color:#0079A1;
@@ -31,12 +33,13 @@ a.fanchor {
     text-decoration: underline;
     font-family: sans-serif;
 }
+a.fanchor:hover {color:#0079A1;}/*#FC6F5C;}*/
 header, .content, footer {
     padding: 32px;
     padding: 2rem;
 }
 header, footer {
-    background: #577491;
+    background: #2C3E50;
 }
 p, ul, ol {
     margin-bottom: 16px;
@@ -134,7 +137,7 @@ figure figcaption {
  .button {
     text-decoration: none;
     display: inline-block;
-    background: #0079A1;
+    background: #2C3E50;
     padding: 10px 16px 10px 16px;
     padding: 0.625rem 1rem 0.625rem 1rem;
     border-radius: 4px;
@@ -165,12 +168,14 @@ figure figcaption {
 }
 .site-title a {
     text-decoration: none;
-    font-size: 2.65rem;
+    font-size: 2rem;
     color: #FFFFFF;
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
+    margin: 16px;
 }
+.boxed{border: 3px solid #FFFFFF ;}
 .white-color {
     color: #FFFFFF;
 }
@@ -348,7 +353,7 @@ header nav ul li {
 }
 .pagination .previous, .pagination .next {
     text-decoration: none;
-    color: #88BBCC;
+    color: #2C3E50;
 }
 .pagination.home .previous, .pagination.home .next {
     font-size: 45px;
@@ -364,13 +369,13 @@ header nav ul li {
 }
 .pagination.post, .pagination.post a {
     font-size: 80px;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 .pagination.post .previous, .pagination.post .next {
     position: fixed;
     top: 50%;
     padding: 20px;
-    padding: 1.25rem;
+    padding: 0.25rem;
 }
 .pagination.post .previous {
     float: left;
@@ -423,7 +428,7 @@ header nav ul li {
     bottom: 1rem;
     right: 16px;
     right: 1rem;
-    background: #88BBCC;
+    background: #2C3E50;
     text-decoration: none;
     font-size: 16px;
     font-size: 1rem;
