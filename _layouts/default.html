@@ -24,38 +24,51 @@
 
 <body>
     <header>
-      <div style="float:left;">
-        <h1 class="site-title brand boxed">
+        <div class="white-color" style="">
+          {% capture day %}
+            {{ site.time | date: '%A' }}
+          {% endcapture %}
+
+          {% if day contains "Sunday" %}
+            Amazing {{ site.time | date: '%A' }}
+          {% elsif day contains "Saturday" %}
+            Awesome {{ site.time | date: '%A' }}
+          {% else %}
+            Happy {{ site.time | date: '%A' }}
+          {% endif %}
+        </div>
+
+        <div style="float:left;">
+          <h1 class="site-title brand boxed">
             <a href="/" class="prime">{{ site.name }}</a>
-        </h1>
-      </div>
-        
+          </h1>
+        </div>
 
-    <div style="float:left; margin-left: 378px;">
-    <nav>
-        <ul class="clearfix">
-            <li><i class="icon-home white-color"></i> <a href="/" class="fanchor header-nav">HOME</a></li>
-            <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor header-nav">LABS</a></li>
-            <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor header-nav">RESUME</a></li>
-            <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor header-nav">CONTACT</a></li>
-        </ul>
+        <div style="float:left; margin-left: 500px;">
+        <nav>
+            <ul class="clearfix">
+                <li><i class="icon-home white-color"></i> <a href="/" class="fanchor header-nav">HOME</a></li>
+                <li><i class="icon-code white-color"></i> <a href="/labs" class="fanchor header-nav">LABS</a></li>
+                <li><i class="icon-briefcase white-color"></i> <a href="/resume" class="fanchor header-nav">RESUME</a></li>
+                <li><i class="icon-phone white-color"></i> <a href="/contact" class="fanchor header-nav">CONTACT</a></li>
+            </ul>
 
-        <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
-            <option>Navigation</option>
-            <option value="/">HOME</option>
-            <option value="/labs">LABS</option>
-            <option value="/resume">RESUME</option>
-            <option value="/contact">CONTACT</option>
-        </select>
-    </nav>
-    </div>
+            <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+                <option>Navigation</option>
+                <option value="/">HOME</option>
+                <option value="/labs">LABS</option>
+                <option value="/resume">RESUME</option>
+                <option value="/contact">CONTACT</option>
+            </select>
+        </nav>
+        </div>
 
-    <form class="search">
-        <i class="icon-search white-color" ></i>
-        <input type="text" class="search-field" placeholder="Search Posts!" name="search" />
-    </form>
+        <form class="search" style="margin-top: 5px;">
+            <i class="icon-search white-color" ></i>
+            <input type="text" class="search-field" placeholder="Search Posts!" name="search" />
+        </form>
 
-    <div class="search-results white-color header-nav"><ul></ul></div>
+        <div class="search-results white-color header-nav"><ul></ul></div>
     </header>
 
     <section class="content">
