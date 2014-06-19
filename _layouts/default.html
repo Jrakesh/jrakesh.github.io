@@ -25,17 +25,7 @@
 <body>
     <header>
         <div class="white-color" style="">
-          {% capture day %}
-            {{ site.time | date: '%A' }}
-          {% endcapture %}
-
-          {% if day contains "Sunday" %}
-            Amazing {{ site.time | date: '%A' }}
-          {% elsif day contains "Saturday" %}
-            Awesome {{ site.time | date: '%A' }}
-          {% else %}
-            Happy {{ site.time | date: '%A' }}
-          {% endif %}
+          Happy {{ site.time | date: '%A' }}
         </div>
 
         <div style="float:left;">
